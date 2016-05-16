@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.compositionexample.entity.Component"
+          extends="_local"
+          name="component-view">
+        <property name="parent"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.compositionexample.entity.Composite"
+          extends="_local"
+          name="composite-view">
+        <property name="parent"
+                  view="_minimal">
+        </property>
+    </view>
+    <view class="com.company.compositionexample.entity.Leaf"
+          extends="_local"
+          name="leaf-view">
+        <property name="parent"
+                  view="_minimal">
+        </property>
+    </view>
+</views>

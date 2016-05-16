@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.compositionexample.web.leaf.LeafEdit"
+        datasource="leafDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.compositionexample.web.leaf">
+    <dsContext>
+        <datasource id="leafDs"
+                    class="com.company.compositionexample.entity.Leaf"
+                    view="leaf-view"/>
+    </dsContext>
+    <layout spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="leafDs">
+            <column>
+                <field id="name"
+                       width="200px"/>
+                <field id="parent"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               height="100%"
+               screen="editWindowActions"/>
+    </layout>
+</window>

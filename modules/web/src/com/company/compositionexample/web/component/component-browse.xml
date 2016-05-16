@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.compositionexample.web.component.ComponentBrowse"
+        focusComponent="componentsTable"
+        lookupComponent="componentsTable"
+        messagesPack="com.company.compositionexample.web.component">
+    <dsContext>
+        <hierarchicalDatasource id="componentsDs"
+                                class="com.company.compositionexample.entity.Component"
+                                hierarchyProperty="parent"
+                                view="component-view">
+            <query>
+                <![CDATA[select e from compositionexample$Component e]]>
+            </query>
+        </hierarchicalDatasource>
+    </dsContext>
+    <layout expand="componentsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="componentsTable"
+                datasource="componentsDs">
+            <properties include=".*"/>
+        </filter>
+        <treeTable id="componentsTable"
+                   width="100%">
+            <actions>
+                <action id="create"
+                        openType="DIALOG"/>
+                <action id="edit"
+                        invoke="edit"
+                        openType="DIALOG"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rows datasource="componentsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <popupButton caption="Create"
+                             icon="icons/create.png">
+                    <actions>
+                        <action id="createComposite"
+                                caption="Composite"
+                                invoke="createComposite"/>
+                        <action id="createLeaf"
+                                caption="Leaf"
+                                invoke="createLeaf"/>
+                    </actions>
+                </popupButton>
+                <button id="editBtn"
+                        action="componentsTable.edit"
+                        caption="Edit"
+                        icon="icons/edit.png"/>
+                <button id="removeBtn"
+                        action="componentsTable.remove"/>
+            </buttonsPanel>
+        </treeTable>
+    </layout>
+</window>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.compositionexample.web.composite.CompositeBrowse"
+        focusComponent="compositesTable"
+        lookupComponent="compositesTable"
+        messagesPack="com.company.compositionexample.web.composite">
+    <dsContext>
+        <hierarchicalDatasource id="compositesDs"
+                              class="com.company.compositionexample.entity.Composite"
+                              hierarchyProperty="parent"
+                              view="composite-view">
+            <query>
+                <![CDATA[select e from compositionexample$Composite e]]>
+            </query>
+        </hierarchicalDatasource>
+    </dsContext>
+    <layout expand="compositesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="compositesTable"
+                datasource="compositesDs">
+            <properties include=".*"/>
+        </filter>
+        <treeTable id="compositesTable"
+               width="100%">
+            <columns>
+                <column id="name"/>
+                <column id="parent"/>
+            </columns>
+            <rows datasource="compositesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+            </buttonsPanel>
+        </treeTable>
+    </layout>
+</window>
