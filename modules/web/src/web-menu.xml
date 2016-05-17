@@ -3,6 +3,5 @@
     <menu id="application"
           insertBefore="administration">
         <item id="compositionexample$Component.browse"/>
-        <item id="compositionexample$Composite.browse"/>
     </menu>
 </menu-config>

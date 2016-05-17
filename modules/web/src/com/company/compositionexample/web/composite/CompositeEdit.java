@@ -24,15 +24,25 @@ public class CompositeEdit extends AbstractEditor<Composite> {
     protected PickerField parentField;
 
 
+//    @Override
+//    public void init(Map<String, Object> params) {
+//        PickerField.LookupAction lookupAction = (PickerField.LookupAction) parentField.getAction("lookup");
+//        lookupAction.setLookupScreen("compositionexample$Composite.browse");
+//        Map<String,Object> lookupParams = new HashMap<>();
+//
+//
+//        params.put("hello", getItem());
+//        lookupAction.setLookupScreenParams(lookupParams);
+//        super.init(params);
+//    }
+
+
     @Override
-    public void init(Map<String, Object> params) {
+    protected void postInit() {
         PickerField.LookupAction lookupAction = (PickerField.LookupAction) parentField.getAction("lookup");
         lookupAction.setLookupScreen("compositionexample$Composite.browse");
-        Map<String,Object> lookupParams = new HashMap<>();
-
-
-        params.put("hello", getItem());
+        Map<String, Object> lookupParams = new HashMap<>();
+        lookupParams.put("exclude", getItem());
         lookupAction.setLookupScreenParams(lookupParams);
-        super.init(params);
     }
 }

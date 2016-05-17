@@ -10,7 +10,7 @@ create table COMPOSITIONEXAMPLE_COMPONENT (
     DTYPE varchar(3),
     --
     NAME varchar(255),
-    PARENT_COMPONENT_ID varchar(36),
+    PARENT_ID varchar(36),
     --
     primary key (ID)
 );

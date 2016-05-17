@@ -3,11 +3,13 @@
  */
 package com.company.compositionexample.web.leaf;
 
+import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.AbstractEditor;
 import com.company.compositionexample.entity.Leaf;
 import com.haulmont.cuba.gui.components.PickerField;
 
 import javax.inject.Named;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -20,9 +22,8 @@ public class LeafEdit extends AbstractEditor<Leaf> {
 
 
     @Override
-    public void init(Map<String, Object> params) {
+    protected void postInit() {
         PickerField.LookupAction lookupAction = (PickerField.LookupAction) parentField.getAction("lookup");
         lookupAction.setLookupScreen("compositionexample$Composite.browse");
-        super.init(params);
     }
 }

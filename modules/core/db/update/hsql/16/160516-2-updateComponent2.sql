@@ -1,2 +1,0 @@
-alter table COMPOSITIONEXAMPLE_COMPONENT add column PARENT_ID varchar(36) ;
-alter table COMPOSITIONEXAMPLE_COMPONENT drop column PARENT_COMPOSITE_ID cascade ;
