@@ -35,6 +35,11 @@ public class CompositeBrowse extends AbstractLookup {
         }
     }
 
+    private void removeElementAndSubelementsFromTree(UUID parent) {
+        removeSubelementsFromTree(parent);
+        compositesDs.excludeItem(compositesDs.getItem(parent));
+    }
+
     private void removeSubelementsFromTree(UUID parent) {
         Collection<UUID> children = compositesDs.getChildren(parent);
 
@@ -45,11 +50,6 @@ public class CompositeBrowse extends AbstractLookup {
             Composite currentItem = compositesDs.getItem(child);
             compositesDs.excludeItem(currentItem);
         }
-    }
-
-    private void removeElementAndSubelementsFromTree(UUID parent) {
-        removeSubelementsFromTree(parent);
-        compositesDs.excludeItem(compositesDs.getItem(parent));
     }
 
 }
